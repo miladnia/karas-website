@@ -145,7 +145,7 @@ button {
 .hero {
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: center;
   min-height: 100svh;
   overflow: hidden;
