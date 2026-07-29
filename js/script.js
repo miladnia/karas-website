@@ -1,6 +1,11 @@
 (function () {
   'use strict';
 
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var nav = document.getElementById('nav');
+  var navLinks = nav ? nav.querySelectorAll('.nav__link') : [];
+  var sections = Array.from(document.querySelectorAll('#hero, #synopsis, #story, #crew, #screenplay, #videos, #gallery'));
+
   /* Smooth scroll for anchor links (respects reduced motion) */
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener('click', function (e) {
@@ -12,11 +17,56 @@
 
       e.preventDefault();
       target.scrollIntoView({
-        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+        behavior: prefersReducedMotion ? 'auto' : 'smooth',
         block: 'start'
       });
+
+      history.replaceState(null, '', targetId);
     });
   });
+
+  /* Active nav link on scroll */
+  function setActiveLink(id) {
+    navLinks.forEach(function (link) {
+      var isActive = link.getAttribute('href') === '#' + id;
+      link.classList.toggle('is-active', isActive);
+      if (isActive) {
+        link.setAttribute('aria-current', 'page');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+  }
+
+  function updateScrollState() {
+    if (!nav || !sections.length) return;
+
+    var navHeight = nav.offsetHeight;
+    var scrollPos = window.scrollY + navHeight + 2;
+    var activeSection = sections[0];
+
+    sections.forEach(function (section) {
+      if (section.offsetTop - 200 <= scrollPos) {
+        activeSection = section;
+      }
+    });
+
+    setActiveLink(activeSection.id);
+    nav.classList.toggle('is-scrolled', window.scrollY > 50);
+  }
+
+  var scrollTicking = false;
+  window.addEventListener('scroll', function () {
+    if (!scrollTicking) {
+      scrollTicking = true;
+      requestAnimationFrame(function () {
+        updateScrollState();
+        scrollTicking = false;
+      });
+    }
+  }, { passive: true });
+
+  updateScrollState();
 
   /* Lightbox */
   var lightbox = document.getElementById('lightbox');
