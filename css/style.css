@@ -12,6 +12,7 @@
 
   --font-display: 'Cinzel', Georgia, serif;
   --font-body: 'Inter', system-ui, sans-serif;
+  --font-persian: 'Vazirmatn', system-ui, sans-serif;
 
   --container-max: 1100px;
   --section-padding: clamp(4rem, 8vw, 7rem);
@@ -224,6 +225,88 @@ button {
 
 .prose p + p {
   margin-top: 1.25rem;
+}
+
+/* ===================== LANGUAGE TOGGLE (reusable) ===================== */
+.lang-block__toolbar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.75rem;
+}
+
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  padding: 0.25rem;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+}
+
+.lang-toggle__btn {
+  padding: 0.375rem 0.875rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  border-radius: 999px;
+  transition: color var(--transition), background var(--transition), box-shadow var(--transition);
+}
+
+.lang-toggle__btn:hover,
+.lang-toggle__btn:focus-visible {
+  color: var(--color-text);
+  outline: none;
+}
+
+.lang-toggle__btn.is-active {
+  color: var(--color-text);
+  background: var(--color-accent);
+  box-shadow: 0 0 16px var(--color-accent-glow);
+}
+
+.lang-toggle__divider {
+  font-size: 0.625rem;
+  color: var(--color-border);
+  padding-inline: 0.125rem;
+  user-select: none;
+}
+
+.lang-content {
+  transition: opacity 0.35s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lang-content {
+    transition: none;
+  }
+}
+
+.lang-content.is-fading {
+  opacity: 0;
+}
+
+.lang-content--en {
+  direction: ltr;
+  text-align: left;
+  font-family: var(--font-body);
+}
+
+.lang-content--fa {
+  direction: rtl;
+  text-align: right;
+  font-family: var(--font-persian);
+}
+
+.lang-content [data-lang] {
+  display: none;
+}
+
+.lang-content.lang-content--en [data-lang="en"],
+.lang-content.lang-content--fa [data-lang="fa"] {
+  display: block;
 }
 
 /* ===================== BUTTONS ===================== */

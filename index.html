@@ -7,7 +7,7 @@
   <title>KARAS — Horror Short Film</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Inter:wght@300;400;500;600&family=Vazirmatn:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -48,13 +48,20 @@
     <section id="synopsis" class="section section--synopsis">
       <div class="container">
         <h2 class="section__title">Synopsis</h2>
-        <div class="section__body prose">
-          <!-- TODO: real synopsis text -->
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <!-- TODO: real synopsis text -->
-          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <!-- TODO: real synopsis text -->
-          <p>Curabitur pretium tincidunt lacus. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien proin quam etiam ultrices.</p>
+
+        <div class="lang-block" data-lang-block="synopsis">
+          <div class="lang-block__toolbar">
+            <div class="lang-toggle" role="group" aria-label="Synopsis language">
+              <button type="button" class="lang-toggle__btn is-active" data-lang="en" aria-pressed="true">English</button>
+              <span class="lang-toggle__divider" aria-hidden="true">|</span>
+              <button type="button" class="lang-toggle__btn" data-lang="fa" aria-pressed="false">فارسی</button>
+            </div>
+          </div>
+
+          <div class="lang-content lang-content--en prose section__body" data-lang-content dir="ltr">
+            <p data-lang="en">It has been two months since the heartbreaking death of Zahra's two-year-old daughter; but the wound of this loss has not yet healed. Zahra's relationship with her husband, Amir, has also become severely fragile. Amir has come to believe that Zahra caused their daughter's death, and has distanced himself from her. Meanwhile, Zahra's mysterious nightmares keep taking her back to a place she never thought she would set foot in again — a place where an old secret awaits her.</p>
+            <p data-lang="fa" hidden>دو ماه است که از مرگ دلخراش دختر دو ساله زهرا می‌گذرد؛ اما زخم این فقدان هنوز التیام نیافته است. رابطه زهرا با همسرش امیر نیز به شدت شکننده شده است. امیر به این باور رسیده که زهرا باعث مرگ دخترش شده و از او فاصله گرفته است. در همین حال، کابوس‌های رازآلود زهرا، او را به جایی بازمی‌گردانند که هرگز فکر نمی‌کرد دوباره پا در آن بگذارد؛ جایی که رازی کهنه در انتظار اوست.</p>
+          </div>
         </div>
       </div>
     </section>

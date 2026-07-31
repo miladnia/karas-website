@@ -68,6 +68,72 @@
 
   updateScrollState();
 
+  /* Reusable EN / FA language toggle */
+  var langChoices = {};
+  var LANG_FADE_MS = prefersReducedMotion ? 0 : 350;
+
+  function applyLangToContent(contentEl, lang) {
+    contentEl.classList.remove('lang-content--en', 'lang-content--fa');
+    contentEl.classList.add(lang === 'fa' ? 'lang-content--fa' : 'lang-content--en');
+    contentEl.setAttribute('dir', lang === 'fa' ? 'rtl' : 'ltr');
+
+    contentEl.querySelectorAll('[data-lang]').forEach(function (node) {
+      var nodeLang = node.getAttribute('data-lang');
+      var visible = nodeLang === lang;
+      node.hidden = !visible;
+    });
+  }
+
+  function updateLangToggleUI(blockEl, lang) {
+    blockEl.querySelectorAll('.lang-toggle__btn').forEach(function (btn) {
+      var isActive = btn.getAttribute('data-lang') === lang;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+  }
+
+  function setLangBlockLanguage(blockEl, lang, options) {
+    var opts = options || {};
+    var blockId = blockEl.getAttribute('data-lang-block') || 'default';
+    var contentEl = blockEl.querySelector('[data-lang-content]');
+    if (!contentEl || (lang !== 'en' && lang !== 'fa')) return;
+
+    var previousLang = langChoices[blockId] || 'en';
+    if (!opts.force && previousLang === lang) return;
+
+    function finishSwitch() {
+      applyLangToContent(contentEl, lang);
+      langChoices[blockId] = lang;
+      updateLangToggleUI(blockEl, lang);
+      contentEl.classList.remove('is-fading');
+    }
+
+    if (LANG_FADE_MS === 0 || opts.skipFade) {
+      finishSwitch();
+      return;
+    }
+
+    contentEl.classList.add('is-fading');
+    window.setTimeout(finishSwitch, LANG_FADE_MS);
+  }
+
+  function initLangBlock(blockEl) {
+    var blockId = blockEl.getAttribute('data-lang-block') || 'default';
+    if (langChoices[blockId] === undefined) {
+      langChoices[blockId] = 'en';
+    }
+
+    setLangBlockLanguage(blockEl, langChoices[blockId], { force: true, skipFade: true });
+
+    blockEl.querySelectorAll('.lang-toggle__btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        setLangBlockLanguage(blockEl, btn.getAttribute('data-lang'));
+      });
+    });
+  }
+
+  document.querySelectorAll('[data-lang-block]').forEach(initLangBlock);
+
   /* Lightbox */
   var lightbox = document.getElementById('lightbox');
   if (!lightbox) return;
