@@ -18,10 +18,8 @@
       <ul class="nav__links">
         <li><a href="#hero" class="nav__link" data-section="hero">Home</a></li>
         <li><a href="#synopsis" class="nav__link" data-section="synopsis">Synopsis</a></li>
-        <li><a href="#story" class="nav__link" data-section="story">Story</a></li>
-        <li><a href="#crew" class="nav__link" data-section="crew">Crew</a></li>
-        <li><a href="#screenplay" class="nav__link" data-section="screenplay">Screenplay</a></li>
         <li><a href="#videos" class="nav__link" data-section="videos">Videos</a></li>
+        <li><a href="#crew" class="nav__link" data-section="crew">Crew</a></li>
         <li><a href="#gallery" class="nav__link" data-section="gallery">Gallery</a></li>
       </ul>
     </div>
@@ -66,24 +64,37 @@
       </div>
     </section>
 
-    <!-- ===================== THE STORY ===================== -->
-    <section id="story" class="section section--story">
+   <!-- ===================== VIDEOS ===================== -->
+    <section id="videos" class="section section--videos">
       <div class="container">
-        <h2 class="section__title">The Story</h2>
-        <div class="section__body prose prose--wide">
-          <!-- TODO: real story / narrative text -->
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Nulla quis lorem ut libero malesuada feugiat.</p>
-          <!-- TODO: real story / narrative text -->
-          <p>Pellentesque in ipsum id orci porta dapibus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Donec sollicitudin molestie malesuada. Proin eget tortor risus.</p>
-          <!-- TODO: real story / narrative text -->
-          <p>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt.</p>
-          <!-- TODO: real story / narrative text -->
-          <p>Quisque velit nisi, pretium ut lacinia in, elementum id enim. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Donec rutrum congue leo eget malesuada. Vivamus suscipit tortor eget felis porttitor volutpat.</p>
+        <h2 class="section__title">Videos</h2>
+        <div class="video-grid">
+
+          <!-- TODO: replace with real trailer embed -->
+          <div class="video-placeholder" role="img" aria-label="Trailer video placeholder">
+            <div class="video-placeholder__inner">
+              <button class="video-placeholder__play" type="button" aria-label="Play Trailer" disabled>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+              <span class="video-placeholder__label">Trailer</span>
+            </div>
+          </div>
+
+          <!-- TODO: replace with real behind the scenes reel embed -->
+          <div class="video-placeholder" role="img" aria-label="Behind the Scenes Reel video placeholder">
+            <div class="video-placeholder__inner">
+              <button class="video-placeholder__play" type="button" aria-label="Play Behind the Scenes Reel" disabled>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+              </button>
+              <span class="video-placeholder__label">Behind the Scenes Reel</span>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- ===================== CREW ===================== -->
+   <!-- ===================== CREW ===================== -->
     <section id="crew" class="section section--crew">
       <div class="container">
         <h2 class="section__title">Crew</h2>
@@ -144,51 +155,6 @@
             <h3 class="crew-card__name">Kevin MacLeod</h3>
             <p class="crew-card__role">Composer</p>
           </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== SCREENPLAY ===================== -->
-    <section id="screenplay" class="section section--screenplay">
-      <div class="container">
-        <div class="screenplay-card">
-          <h2 class="section__title section__title--inline">Screenplay</h2>
-          <!-- TODO: real screenplay description -->
-          <p class="screenplay-card__text">Read the original screenplay for KARAS. Available as a PDF download.</p>
-          <a href="/screenplay/karas-screenplay.pdf" class="btn btn--primary" download>
-            <!-- TODO: link to real screenplay PDF -->
-            Download Screenplay (PDF)
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== VIDEOS ===================== -->
-    <section id="videos" class="section section--videos">
-      <div class="container">
-        <h2 class="section__title">Videos</h2>
-        <div class="video-grid">
-
-          <!-- TODO: replace with real trailer embed -->
-          <div class="video-placeholder" role="img" aria-label="Trailer video placeholder">
-            <div class="video-placeholder__inner">
-              <button class="video-placeholder__play" type="button" aria-label="Play Trailer" disabled>
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-              </button>
-              <span class="video-placeholder__label">Trailer</span>
-            </div>
-          </div>
-
-          <!-- TODO: replace with real behind the scenes reel embed -->
-          <div class="video-placeholder" role="img" aria-label="Behind the Scenes Reel video placeholder">
-            <div class="video-placeholder__inner">
-              <button class="video-placeholder__play" type="button" aria-label="Play Behind the Scenes Reel" disabled>
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-              </button>
-              <span class="video-placeholder__label">Behind the Scenes Reel</span>
-            </div>
-          </div>
 
         </div>
       </div>

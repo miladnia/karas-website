@@ -4,7 +4,7 @@
   var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var nav = document.getElementById('nav');
   var navLinks = nav ? nav.querySelectorAll('.nav__link') : [];
-  var sections = Array.from(document.querySelectorAll('#hero, #synopsis, #story, #crew, #screenplay, #videos, #gallery'));
+  var sections = Array.from(document.querySelectorAll('#hero, #synopsis, #videos, #crew, #gallery'));
 
   /* Smooth scroll for anchor links (respects reduced motion) */
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {

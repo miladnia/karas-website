@@ -427,115 +427,16 @@ button {
   50% { opacity: 1; }
 }
 
-/* ===================== SYNOPSIS & STORY ===================== */
-.section--synopsis {
+/* ===================== main sections ===================== */
+main > section:nth-child(odd) {
   background: var(--color-bg);
 }
-
-.section--story {
+main > section:nth-child(even) {
   background: var(--color-bg-elevated);
-  border-block: 1px solid var(--color-border);
-}
-
-/* ===================== CREW ===================== */
-.section--crew {
-  background: var(--color-bg);
-}
-
-.crew-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 2rem;
-}
-
-.crew-card {
-  text-align: center;
-  transition: transform var(--transition);
-}
-
-.crew-card:hover {
-  transform: translateY(-4px);
-}
-
-.crew-card__photo {
-  aspect-ratio: 1;
-  overflow: hidden;
-  border: 1px solid var(--color-border);
-  margin-bottom: 1rem;
-  position: relative;
-}
-
-.crew-card__photo::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(139, 0, 0, 0.15), transparent 50%);
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity var(--transition);
-}
-
-.crew-card:hover .crew-card__photo::after {
-  opacity: 1;
-}
-
-.crew-card__photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: grayscale(30%);
-  transition: filter var(--transition);
-}
-
-.crew-card:hover .crew-card__photo img {
-  filter: grayscale(0%);
-}
-
-.crew-card__name {
-  font-family: var(--font-display);
-  font-size: 0.9375rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 0.25rem;
-}
-
-.crew-card__role {
-  font-size: 0.8125rem;
-  color: var(--color-accent);
-  letter-spacing: 0.04em;
-}
-
-/* ===================== SCREENPLAY ===================== */
-.section--screenplay {
-  background: var(--color-bg-elevated);
-  border-block: 1px solid var(--color-border);
-}
-
-.screenplay-card {
-  max-width: 36rem;
-  margin-inline: auto;
-  padding: clamp(2rem, 5vw, 3rem);
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  text-align: center;
-}
-
-.screenplay-card .section__title {
-  margin-bottom: 1rem;
-}
-
-.screenplay-card__text {
-  color: var(--color-text-muted);
-  font-weight: 300;
-  margin-bottom: 2rem;
+  border-top: 1px solid var(--color-border);
 }
 
 /* ===================== VIDEOS ===================== */
-.section--videos {
-  background: var(--color-bg);
-}
-
 .video-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr));
@@ -605,12 +506,72 @@ button {
   color: var(--color-text-muted);
 }
 
-/* ===================== GALLERY ===================== */
-.section--gallery {
-  background: var(--color-bg-elevated);
-  border-top: 1px solid var(--color-border);
+/* ===================== CREW ===================== */
+.crew-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
 }
 
+.crew-card {
+  text-align: center;
+  transition: transform var(--transition);
+}
+
+.crew-card:hover {
+  transform: translateY(-4px);
+}
+
+.crew-card__photo {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.crew-card__photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(139, 0, 0, 0.15), transparent 50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.crew-card:hover .crew-card__photo::after {
+  opacity: 1;
+}
+
+.crew-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(30%);
+  transition: filter var(--transition);
+}
+
+.crew-card:hover .crew-card__photo img {
+  filter: grayscale(0%);
+}
+
+.crew-card__name {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.crew-card__role {
+  font-size: 0.8125rem;
+  color: var(--color-accent);
+  letter-spacing: 0.04em;
+}
+
+/* ===================== GALLERY ===================== */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
