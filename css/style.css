@@ -424,7 +424,6 @@ button {
   line-height: 1;
   color: var(--color-text);
   text-shadow: 0 0 60px var(--color-accent-glow), 0 4px 30px rgba(0, 0, 0, 0.8);
-  margin-bottom: 1rem;
 }
 
 .hero__tagline {
@@ -433,7 +432,7 @@ button {
   font-style: italic;
   color: var(--color-text-muted);
   letter-spacing: 0.05em;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 .hero__cta {
@@ -830,6 +829,11 @@ main > section:nth-child(even) {
 
   .hero__title {
     letter-spacing: 0.15em;
+    margin-bottom: 1rem;
+  }
+
+  .hero__tagline {
+    margin-bottom: 2.5rem;
   }
 
   .crew-grid {
