@@ -606,6 +606,7 @@ main > section:nth-child(even) {
 }
 
 .crew-card__photo {
+  display: block;
   aspect-ratio: 1;
   overflow: hidden;
   border: 1px solid var(--color-border);
