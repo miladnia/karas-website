@@ -1,0 +1,272 @@
+/* ==========================================================================
+   Crew Profile Pages — standalone stylesheet
+   ========================================================================== */
+
+:root {
+  /* -- Color: warm paper + deep pine ink, one brass-green accent -- */
+  --bg: #f6f4ee;
+  --bg-panel: #ffffff;
+  --ink: #17191c;
+  --ink-soft: #52565c;
+  --ink-faint: #8b8e94;
+  --accent: #3b5d50;      /* deep pine/slate green — clapperboard-adjacent, not genre-specific */
+  --accent-soft: #7c9c8e;
+  --line: #ddd7c8;
+
+  /* Dark colors */
+  /* -- Color: dark ink paper + brass-green accent -- */
+  --bg: #14161a;
+  --bg-panel: #1b1e22;
+  --ink: #f2f0ea;
+  --ink-soft: #b7b9bd;
+  --ink-faint: #74777d;
+  --accent: #7fa693;      /* lightened pine/sage green — keeps enough contrast on dark bg */
+  --accent-soft: #3b5d50; /* the old accent now works as a muted/secondary tint */
+  --line: #313439;
+
+  /* -- Type: serif display for identity, grotesk for body, mono for production-paper meta -- */
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-body: "Work Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "Space Mono", "Courier New", monospace;
+
+  --radius: 2px;
+  --max-width: 920px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* -- Top bar: minimal, points back to the group, not the film -- */
+
+.top-bar {
+  border-bottom: 1px solid var(--line);
+}
+
+.top-bar__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-bar__brand {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.top-bar__brand a {
+  color: inherit;
+}
+
+.top-bar__crumb {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* -- Profile layout -- */
+
+.profile {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 56px 24px 72px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+@media (max-width: 720px) {
+  .profile {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 36px 20px 56px;
+  }
+}
+
+/* -- Photo, framed like a numbered film negative -- */
+
+.portrait {
+  position: relative;
+  animation: fade-up 0.5s ease-out both;
+}
+
+.portrait__frame {
+  position: relative;
+  border: 1px solid var(--ink);
+  padding: 10px;
+  background: var(--bg-panel);
+}
+
+.portrait__frame img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  background: var(--line);
+}
+
+.portrait__keycode {
+  position: absolute;
+  top: -11px;
+  left: 10px;
+  background: var(--bg);
+  padding: 0 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--ink-faint);
+}
+
+.portrait__tick {
+  position: absolute;
+  right: -1px;
+  width: 7px;
+  height: 1px;
+  background: var(--ink);
+}
+
+/* -- Identity block -- */
+
+.identity {
+  animation: fade-up 0.5s ease-out 0.08s both;
+}
+
+.identity__role {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 10px;
+}
+
+.identity__name {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.05;
+  margin: 0 0 24px;
+  color: var(--ink);
+}
+
+.identity__bio {
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 54ch;
+  margin: 0 0 32px;
+}
+
+/* -- Social links: understated text row, not icon buttons -- */
+
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.social__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+}
+
+.social__link:hover {
+  color: var(--accent);
+}
+
+.social__link svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.social__divider {
+  color: var(--line);
+  font-size: 13px;
+}
+
+/* -- Footer -- */
+
+.profile-footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px 48px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ink-faint);
+  letter-spacing: 0.02em;
+}
+
+.profile-footer a {
+  color: var(--ink-faint);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

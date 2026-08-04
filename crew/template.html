@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>{{NAME}} | {{SITE_NAME}}</title>
+  <meta name="description" content="{{META_DESCRIPTION}}" />
+  <link rel="canonical" href="{{CANONICAL_URL}}" />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="{{NAME}} — {{ROLE}}" />
+  <meta property="og:description" content="{{META_DESCRIPTION}}" />
+  <meta property="og:image" content="{{PHOTO_ABSOLUTE}}" />
+  <meta property="og:url" content="{{CANONICAL_URL}}" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Work+Sans:wght@400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="{{CREW_BASE_URL}}/css/profile.css" />
+
+  <!-- Structured data: tells Google this page IS this person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "{{NAME}}",
+    "jobTitle": "{{ROLE}}",
+    "description": "{{META_DESCRIPTION}}",
+    "image": "{{PHOTO_ABSOLUTE}}",
+    "url": "{{CANONICAL_URL}}",
+    "sameAs": {{SAME_AS_JSON}}
+  }
+  </script>
+</head>
+<body>
+
+  <header class="top-bar">
+    <div class="top-bar__inner">
+      <div class="top-bar__brand"><a href="{{SITE_URL}}">{{SITE_NAME}}</a></div>
+      <div class="top-bar__crumb">Crew Profile</div>
+    </div>
+  </header>
+
+  <main class="profile">
+    <figure class="portrait">
+      <div class="portrait__frame">
+        <span class="portrait__keycode">{{KEYCODE}}</span>
+        <img src="{{PHOTO}}" alt="Portrait of {{NAME}}" />
+      </div>
+    </figure>
+
+    <section class="identity">
+      <p class="identity__role">{{ROLE}}</p>
+      <h1 class="identity__name">{{NAME}}</h1>
+      <p class="identity__bio">{{BIO}}</p>
+
+      <nav class="social" aria-label="Social and professional links">
+        {{SOCIAL_LINKS_HTML}}
+      </nav>
+    </section>
+  </main>
+
+  <footer class="profile-footer">
+    <p>Part of <a href="{{SITE_URL}}">{{SITE_NAME}}</a></p>
+  </footer>
+
+</body>
+</html>
